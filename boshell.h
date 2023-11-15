@@ -195,13 +195,13 @@ void free_binfo(binfo_t *, int);
 /* benv.c */
 char *_bgetenv(binfo_t *, const char *);
 int _benv(binfo_t *);
-int _bsetenv(binfo_t *);
+int _bmsetenv(binfo_t *);
 int _bunsetenv(binfo_t *);
 int bpopulate_env_list(binfo_t *);
 
 /* bgetenv.c */
 char **bget_env(binfo_t *);
-int _bunsetenv(binfo_t *, char *);
+int b_unsetenv(binfo_t *, char *);
 int _bsetenv(binfo_t *, char *, char *);
 
 /* bhistory.c */

@@ -135,7 +135,7 @@ int bdelete_node_at_index(list_t **head, unsigned int index)
 }
 
 /**
- * free_list - frees all nodes of a list
+ * free_blist - frees all nodes of a list
  * @head_ptr: address of pointer to head node
  *
  * Return: void

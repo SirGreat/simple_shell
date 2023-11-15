@@ -11,7 +11,7 @@ char *get_bhistory_file(binfo_t *binfo)
 {
 	char *buf, *bdir;
 
-	dir = _bgetenv(binfo, "HOME=");
+	bdir = _bgetenv(binfo, "HOME=");
 	if (!bdir)
 		return (NULL);
 	buf = malloc(sizeof(char) * (_strlen(bdir) + _strlen(BHIST_FILE) + 2));
@@ -98,7 +98,7 @@ int read_bhistory(binfo_t *binfo)
 	binfo->histcount = linecount;
 	while (binfo->histcount-- >= BHIST_MAX)
 		bdelete_node_at_index(&(binfo->history), 0);
-	renumber_history(binfo);
+	renumber_bhistory(binfo);
 	return (binfo->histcount);
 }
 

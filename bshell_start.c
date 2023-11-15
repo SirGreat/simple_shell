@@ -60,10 +60,10 @@ int find_builtin(binfo_t *binfo)
 		{"env", _benv},
 		{"help", _bhelp},
 		{"history", _bhistory},
-		{"setenv", _bsetenv},
+		{"setenv", _bmsetenv},
 		{"unsetenv", _bunsetenv},
 		{"cd", _bcd},
-		{"alias", _mybalias},
+		{"alias", _balias},
 		{NULL, NULL}
 	};
 
@@ -95,7 +95,7 @@ void find_cmd(binfo_t *binfo)
 		binfo->linecount_flag = 0;
 	}
 	for (i = 0, k = 0; binfo->arg[i]; i++)
-		if (!bdelim(binfo->arg[i], " \t\n"))
+		if (!is_delim(binfo->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
@@ -152,7 +152,7 @@ void fork_cmd(binfo_t *binfo)
 		wait(&(binfo->status));
 		if (WIFEXITED(binfo->status))
 		{
-			binfo->status = WEXITSTATUS(info->status);
+			binfo->status = WEXITSTATUS(binfo->status);
 			if (binfo->status == 126)
 				print_error(binfo, "Permission denied\n");
 		}

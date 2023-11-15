@@ -8,7 +8,7 @@
  *
  * Return: 1 if chain delimeter, 0 otherwise
  */
-int bchain(binfo_t *binfo, char *buf, size_t *p)
+int bchain(binfo_t *binfo, char *buf, size_t *b)
 {
 	size_t j = *b;
 
@@ -16,7 +16,7 @@ int bchain(binfo_t *binfo, char *buf, size_t *p)
 	{
 		buf[j] = 0;
 		j++;
-		info->cmd_buf_type = BMD_OR;
+		binfo->cmd_buf_type = BMD_OR;
 	}
 	else if (buf[j] == '&' && buf[j + 1] == '&')
 	{
@@ -45,7 +45,7 @@ int bchain(binfo_t *binfo, char *buf, size_t *p)
  *
  * Return: Void
  */
-void check_bchain(binfo_t *binfo, char *buf, size_t *p, size_t i, size_t len)
+void check_bchain(binfo_t *binfo, char *buf, size_t *b, size_t i, size_t len)
 {
 	size_t j = *b;
 
@@ -75,7 +75,7 @@ void check_bchain(binfo_t *binfo, char *buf, size_t *p, size_t i, size_t len)
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_blias(binfo_t *binfo)
+int replace_balias(binfo_t *binfo)
 {
 	int i;
 	list_t *node;
@@ -83,14 +83,14 @@ int replace_blias(binfo_t *binfo)
 
 	for (i = 0; i < 10; i++)
 	{
-		node = bnode_starts_with(binfo->balias, binfo->argv[0], '=');
+		node = node_starts_with(binfo->balias, binfo->argv[0], '=');
 		if (!node)
 			return (0);
 		free(binfo->argv[0]);
 		b = _strchr(node->bstr, '=');
 		if (!b)
 			return (0);
-		p = _strdup(b + 1);
+		b = _strdup(b + 1);
 		if (!b)
 			return (0);
 		binfo->argv[0] = b;
@@ -116,7 +116,7 @@ int replace_bvars(binfo_t *binfo)
 
 		if (!_strcmp(binfo->argv[i], "$?"))
 		{
-			replace_bstring(&(info->argv[i]),
+			replace_bstring(&(binfo->argv[i]),
 				_strdup(convert_number(binfo->status, 10, 0)));
 			continue;
 		}
@@ -126,7 +126,7 @@ int replace_bvars(binfo_t *binfo)
 				_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = bnode_starts_with(binfo->env, &binfo->argv[i][1], '=');
+		node = node_starts_with(binfo->env, &binfo->argv[i][1], '=');
 		if (node)
 		{
 			replace_bstring(&(binfo->argv[i]),
