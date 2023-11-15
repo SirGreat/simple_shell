@@ -232,4 +232,4 @@ int replace_balias(binfo_t *);
 int replace_bvars(binfo_t *);
 int replace_bstring(char **, char *);
 
-#endif /* BASHELL_H */
+#endif /* BOSHELL_H */
