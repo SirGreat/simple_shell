@@ -35,7 +35,7 @@ int b_unsetenv(binfo_t *binfo, char *var)
 
 	while (node)
 	{
-		 = bstarts_with(node->bstr, var);
+		b = bstarts_with(node->bstr, var);
 		if (b && *b == '=')
 		{
 			binfo->env_changed = bdelete_node_at_index(&(binfo->env), i);

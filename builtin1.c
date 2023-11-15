@@ -37,9 +37,9 @@ int unset_balias(binfo_t *binfo, char *bstr)
 }
 
 /**
- * set_balias - sets alias to string
+ * set_balias - sets balias to string
  * @binfo: parameter struct
- * @str: the string alias
+ * @bstr: the string balias
  *
  * Return: Always 0 on success, 1 on error
  */
