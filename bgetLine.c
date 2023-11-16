@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "boshell.h"
 
 /**
  * input_buf - buffers chained commands
@@ -31,7 +31,7 @@ ssize_t input_buf(binfo_t *binfo, char **buf, size_t *len)
 				(*buf)[r - 1] = '\0'; /* remove trailing newline */
 				r--;
 			}
-			info->linecount_flag = 1;
+			binfo->linecount_flag = 1;
 			remove_comments(*buf);
 			build_bhistory_list(binfo, *buf, binfo->histcount++);
 			/* if (_strchr(*buf, ';')) is this a command chain? */
@@ -131,7 +131,7 @@ int _bgetline(binfo_t *binfo, char **ptr, size_t *length)
 	if (i == len)
 		i = len = 0;
 
-	r = read_buf(info, buf, &len);
+	r = read_buf(binfo, buf, &len);
 	if (r == -1 || (r == 0 && len == 0))
 		return (-1);
 

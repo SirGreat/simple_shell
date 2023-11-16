@@ -79,8 +79,8 @@ int _bsetenv(binfo_t *binfo, char *var, char *value)
 		b = bstarts_with(node->bstr, var);
 		if (b && *b == '=')
 		{
-			free(node->str);
-			node->str = buf;
+			free(node->bstr);
+			node->bstr = buf;
 			binfo->env_changed = 1;
 			return (0);
 		}

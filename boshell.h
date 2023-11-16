@@ -162,12 +162,12 @@ int bfree(void **);
 
 /* atoi.c */
 int interactive(binfo_t *);
-int is_delim(char, char *);
+int bdelim(char, char *);
 int _isalpha(int);
 int _atoi(char *);
 
 /* berrors1.c */
-int _erratoi(char *);
+int _berratoi(char *);
 void print_error(binfo_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);

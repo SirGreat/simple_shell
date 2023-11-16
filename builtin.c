@@ -18,7 +18,7 @@ int _bexit(binfo_t *binfo)
 		{
 			binfo->status = 2;
 			print_error(binfo, "Illegal number: ");
-			_bputs(info->argv[1]);
+			_bputs(binfo->argv[1]);
 			_bputchar('\n');
 			return (1);
 		}

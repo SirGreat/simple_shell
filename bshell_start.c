@@ -95,7 +95,7 @@ void find_cmd(binfo_t *binfo)
 		binfo->linecount_flag = 0;
 	}
 	for (i = 0, k = 0; binfo->arg[i]; i++)
-		if (!is_delim(binfo->arg[i], " \t\n"))
+		if (!bdelim(binfo->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;

@@ -31,7 +31,7 @@ int unset_balias(binfo_t *binfo, char *bstr)
 	c = *b;
 	*b = 0;
 	bret = bdelete_node_at_index(&(binfo->balias),
-		get_node_index(binfo->balias, bnode_starts_with(binfo->balias, sbtr, -1)));
+	get_node_index(binfo->balias, node_starts_with(binfo->balias, bstr, -1)));
 	*b = c;
 	return (bret);
 }
@@ -108,7 +108,7 @@ int _mybalias(binfo_t *binfo)
 		if (b)
 			set_balias(binfo, binfo->argv[i]);
 		else
-			print_balias(bnode_starts_with(binfo->balias, binfo->argv[i], '='));
+			print_balias(node_starts_with(binfo->balias, binfo->argv[i], '='));
 	}
 
 	return (0);
