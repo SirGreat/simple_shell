@@ -63,7 +63,7 @@ int find_builtin(binfo_t *binfo)
 		{"setenv", _bmsetenv},
 		{"unsetenv", _bunsetenv},
 		{"cd", _bcd},
-		{"alias", _balias},
+		{"alias", _mybalias},
 		{NULL, NULL}
 	};
 

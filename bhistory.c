@@ -98,19 +98,19 @@ int read_bhistory(binfo_t *binfo)
 	binfo->histcount = linecount;
 	while (binfo->histcount-- >= BHIST_MAX)
 		bdelete_node_at_index(&(binfo->history), 0);
-	renumber_bhistory(binfo);
+	renumber_history(binfo);
 	return (binfo->histcount);
 }
 
 /**
- * build_history_list - adds entry to a history linked list
+ * build_bhistory_list - adds entry to a history linked list
  * @binfo: Structure containing potential arguments. Used to maintain
  * @buf: buffer
  * @linecount: the history linecount, histcount
  *
  * Return: Always 0
  */
-int build_history_list(binfo_t *binfo, char *buf, int linecount)
+int build_bhistory_list(binfo_t *binfo, char *buf, int linecount)
 {
 	list_t *node = NULL;
 

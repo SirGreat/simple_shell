@@ -180,7 +180,7 @@ int _bhelp(binfo_t *);
 
 /* builtin1.c */
 int _bhistory(binfo_t *);
-int _balias(binfo_t *);
+int _mybalias(binfo_t *);
 
 /* bgetline.c */
 ssize_t get_input(binfo_t *);
@@ -209,7 +209,7 @@ char *get_bhistory_file(binfo_t *binfo);
 int write_bhistory(binfo_t *binfo);
 int read_bhistory(binfo_t *binfo);
 int build_bhistory_list(binfo_t *binfo, char *buf, int linecount);
-int renumber_bhistory(binfo_t *binfo);
+int renumber_history(binfo_t *binfo);
 
 /* blists.c */
 list_t *badd_node(list_t **, const char *, int);
@@ -222,7 +222,7 @@ void free_blist(list_t **);
 size_t blist_len(const list_t *);
 char **blist_to_strings(list_t *);
 size_t bprint_list(const list_t *);
-list_t *node_starts_with(list_t *, char *, char);
+list_t *bnode_starts_with(list_t *, char *, char);
 ssize_t get_node_index(list_t *, list_t *);
 
 /* bchain.c */

@@ -83,7 +83,7 @@ int replace_balias(binfo_t *binfo)
 
 	for (i = 0; i < 10; i++)
 	{
-		node = node_starts_with(binfo->balias, binfo->argv[0], '=');
+		node = bnode_starts_with(binfo->balias, binfo->argv[0], '=');
 		if (!node)
 			return (0);
 		free(binfo->argv[0]);
@@ -126,7 +126,7 @@ int replace_bvars(binfo_t *binfo)
 				_strdup(convert_number(getpid(), 10, 0)));
 			continue;
 		}
-		node = node_starts_with(binfo->env, &binfo->argv[i][1], '=');
+		node = bnode_starts_with(binfo->env, &binfo->argv[i][1], '=');
 		if (node)
 		{
 			replace_bstring(&(binfo->argv[i]),
@@ -140,13 +140,13 @@ int replace_bvars(binfo_t *binfo)
 }
 
 /**
- * replace_string - replaces string
+ * replace_bstring - replaces string
  * @old: address of old string
  * @new: new string
  *
  * Return: 1 if replaced, 0 otherwise
  */
-int replace_string(char **old, char *new)
+int replace_bstring(char **old, char *new)
 {
 	free(*old);
 	*old = new;

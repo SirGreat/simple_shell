@@ -66,7 +66,7 @@ void free_binfo(binfo_t *binfo, int all)
 			free_blist(&(binfo->balias));
 		ffree(binfo->environ);
 			binfo->environ = NULL;
-		bfree((void **)binfo->cmd_buf);
+		free((void **)binfo->cmd_buf);
 		if (binfo->readfd > 2)
 			close(binfo->readfd);
 		_putchar(BBUF_FLUSH);
