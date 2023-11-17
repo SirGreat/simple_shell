@@ -1,10 +1,10 @@
 #include "boshell.h"
 
 /**
- * bchain - test if current char in buffer is a chain delimeter
- * @binfo: the parameter struct
- * @buf: the char buffer
- * @b: address of current position in buf
+ * bchain - verify if the buffer's current character is a chain delimeter.
+ * @binfo: the structural parameter
+ * @buf: the buffer for char
+ * @b: current position's address in buf
  *
  * Return: 1 if chain delimeter, 0 otherwise
  */
@@ -37,9 +37,9 @@ int bchain(binfo_t *binfo, char *buf, size_t *b)
 
 /**
  * check_bchain - checks we should continue chaining based on last status
- * @binfo: the parameter struct
- * @buf: the char buffer
- * @b: address of current position in buf
+ * @binfo: the structural parameter
+ * @buf: the buffer for char
+ * @b: current position's address in buf
  * @i: starting position in buf
  * @len: length of buf
  *
